@@ -1,0 +1,209 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 32px;
+  font-weight: 900;
+  color: #ff4d4d;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.navbar ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover { color: #ff4d4d; }
+
+.btn {
+  background: linear-gradient(45deg, #ff4d4d, #ff1a1a);
+  padding: 12px 25px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255,77,77,0.4);
+}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(255,77,77,0.6);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('images/hero-bg.jpg') no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(255,77,77,0.5), rgba(255,26,26,0.5));
+  z-index: 0;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.hero-content {
+  z-index: 1;
+}
+.hero-content h1 {
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 900;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+}
+.hero-content p {
+  font-size: 22px;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Sections */
+.info, .services, .gallery, .testimonials, .contact {
+  padding: 100px 60px;
+  text-align: center;
+}
+h2 {
+  background: linear-gradient(90deg, #ff4d4d, #ff1a1a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 38px;
+  margin-bottom: 25px;
+}
+
+/* Services */
+.service-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+.service {
+  background: #111;
+  border-radius: 12px;
+  padding: 35px;
+  width: 300px;
+  transition: all 0.3s;
+}
+.service img { width: 100px; margin-bottom: 20px; }
+.service:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.4s;
+  position: relative;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Testimonials */
+.testimonial-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+.testimonial {
+  background: #111;
+  padding: 35px;
+  border-radius: 12px;
+  width: 300px;
+  transition: 0.3s;
+}
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Contact */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+.contact input, .contact textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+}
+.contact button {
+  background: #ff4d4d;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.contact button:hover { background: #ff1a1a; transform: scale(1.05); }
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: #000;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #333;
+  color: #bbb;
+}
