@@ -1,114 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Extreme Adventures</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-
-  <!-- Animate + WOW -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <script>new WOW().init();</script>
 
   <!-- Navbar -->
   <div class="navbar">
-    <div class="logo wow animate__animated animate__fadeInLeft">Extreme Adventures</div>
+    <div class="logo">Extreme Adventures</div>
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#info">About</a></li>
-      <li><a href="#services">Adventures</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="checkout.html" class="btn wow animate__animated animate__fadeInRight">Book Now</a>
+    <a href="#contact" class="btn">Book Now</a>
   </div>
 
   <!-- Hero Section -->
   <section class="hero" id="hero">
-    <div class="overlay"></div>
-    <div class="hero-content wow animate__animated animate__fadeInUp">
-      <h1>Live the Extreme</h1>
-      <p>Dare to dream, dare to live — your next adventure starts here!</p>
+    <div class="hero-content">
+      <h1>Thrill Beyond Limits</h1>
+      <p>Join us for unforgettable adventures across the globe</p>
       <a href="#services" class="btn">Explore Now</a>
     </div>
   </section>
 
   <!-- Info Section -->
-  <section class="info wow animate__animated animate__fadeInUp" id="info">
+  <section class="info" id="info">
     <h2>Welcome to Extreme Adventures</h2>
-    <p>Join us in chasing adrenaline! From skydiving to mountain climbing, we turn your dreams into breathtaking memories. Professional instructors. World-class safety. Unlimited thrill!</p>
+    <p>We bring you the best experiences of your life, from skydiving to surfing, 
+    mountain climbing to biking. Live the thrill, feel the freedom!</p>
   </section>
 
   <!-- Services Section -->
   <section class="services" id="services">
-    <h2 class="wow animate__animated animate__fadeInUp">Our Top Adventures</h2>
+    <h2>Our Adventures</h2>
     <div class="service-boxes">
-      <div class="service wow animate__animated animate__zoomIn">
-        <img src="images/skydiving.png" alt="Skydiving" />
+      <div class="service">
+        <img src="images/skydiving.png" alt="Skydiving">
         <h3>Skydiving</h3>
-        <p>Feel the wind rush past as you freefall from 10,000 feet!</p>
+        <p>Feel the rush as you jump from the sky and embrace the thrill.</p>
       </div>
-      <div class="service wow animate__animated animate__zoomIn" data-wow-delay="0.2s">
-        <img src="images/surfing.png" alt="Surfing" />
+      <div class="service">
+        <img src="images/surfing.png" alt="Surfing">
         <h3>Surfing</h3>
-        <p>Ride the waves and master the ocean’s rhythm.</p>
+        <p>Ride the waves and experience the joy of the ocean like never before.</p>
       </div>
-      <div class="service wow animate__animated animate__zoomIn" data-wow-delay="0.4s">
-        <img src="images/mountain.png" alt="Mountain" />
+      <div class="service">
+        <img src="images/mountain.png" alt="Mountain Climbing">
         <h3>Mountain Climbing</h3>
-        <p>Conquer heights and touch the clouds with our expert guides.</p>
+        <p>Challenge yourself and conquer the toughest peaks around the world.</p>
       </div>
     </div>
   </section>
 
-  <!-- Gallery -->
+  <!-- Gallery Section -->
   <section class="gallery" id="gallery">
-    <h2 class="wow animate__animated animate__fadeInUp">Adventure Gallery</h2>
+    <h2>Adventure Gallery</h2>
     <div class="gallery-grid">
-      <img src="images/gallery1.jpg" alt="Adventure 1" class="wow animate__animated animate__fadeInUp">
-      <img src="images/gallery2.jpg" alt="Adventure 2" class="wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
-      <img src="images/gallery3.jpg" alt="Adventure 3" class="wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-      <img src="images/gallery4.jpg" alt="Adventure 4" class="wow animate__animated animate__fadeInUp" data-wow-delay="0.3s">
-      <img src="images/gallery5.jpg" alt="Adventure 5" class="wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-      <img src="images/gallery6.jpg" alt="Adventure 6" class="wow animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+      <img src="images/gallery1.jpg" alt="Adventure 1">
+      <img src="images/gallery2.jpg" alt="Adventure 2">
+      <img src="images/gallery3.jpg" alt="Adventure 3">
+      <img src="images/gallery4.jpg" alt="Adventure 4">
+      <img src="images/gallery5.jpg" alt="Adventure 5">
+      <img src="images/gallery6.jpg" alt="Adventure 6">
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Testimonials Section -->
   <section class="testimonials" id="testimonials">
-    <h2 class="wow animate__animated animate__fadeInUp">What Our Adventurers Say</h2>
+    <h2>What Our Adventurers Say</h2>
     <div class="testimonial-boxes">
-      <div class="testimonial wow animate__animated animate__fadeInUp">
-        <img src="images/person1.jpg" alt="Person 1" />
-        <p>“Skydiving was a dream come true. Totally life-changing!”</p>
+      <div class="testimonial">
+        <img src="images/person1.png" alt="Person 1">
+        <p>“Skydiving with Extreme Adventures was the most thrilling moment of my life. Highly recommended!”</p>
         <h3>- Sarah, USA</h3>
       </div>
-      <div class="testimonial wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
-        <img src="images/person2.jpg" alt="Person 2" />
-        <p>“Professional team and unforgettable experiences.”</p>
+      <div class="testimonial">
+        <img src="images/person2.png" alt="Person 2">
+        <p>“The surfing trip was absolutely amazing. Professional trainers and stunning locations!”</p>
         <h3>- Ahmed, UAE</h3>
       </div>
-      <div class="testimonial wow animate__animated animate__fadeInUp" data-wow-delay="0.4s">
-        <img src="images/person3.jpg" alt="Person 3" />
-        <p>“Every second was thrilling — can’t wait for the next one!”</p>
+      <div class="testimonial">
+        <img src="images/person3.png" alt="Person 3">
+        <p>“I conquered my fear of heights by mountain climbing with this team. Loved every second!”</p>
         <h3>- Emma, UK</h3>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact wow animate__animated animate__fadeInUp" id="contact">
-    <h2>Contact Us</h2>
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Get in Touch</h2>
     <form>
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
@@ -119,7 +108,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Extreme Adventures | Designed with 💖 by Arooj</p>
+    <p>© 2025 Extreme Adventures | All Rights Reserved</p>
   </footer>
+
 </body>
 </html>
