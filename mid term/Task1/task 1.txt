@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extreme Adventures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Extreme Adventures</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Adventures</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Live the Extreme</h1>
+      <p>Dare to experience the thrill — your next adventure starts here!</p>
+      <a href="#services" class="btn">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <main>
+  <section class="services" id="services">
+    <h2>Our Top Adventures</h2>
+    <div class="service-boxes">
+      <div class="service">
+        <img src="images/skydiving.png" alt="Person skydiving" />
+        <h3>Skydiving</h3>
+        <p>Feel the wind rush as you freefall from 10,000 feet!</p>
+      </div>
+      <div class="service">
+        <img src="images/surfing.png" alt="Surfing on waves" />
+        <h3>Surfing</h3>
+        <p>Ride the waves and conquer the ocean.</p>
+      </div>
+      <div class="service">
+        <img src="images/mountain.png" alt="Mountain climbing adventure" />
+        <h3>Mountain Climbing</h3>
+        <p>Reach new heights with our expert guides.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Adventurers Say</h2>
+    <div class="testimonial-boxes">
+      <div class="testimonial">
+        <img src="images/person1.jpg" alt="Sarah smiling" />
+        <p>“Skydiving was life‑changing. Absolutely incredible!”</p>
+        <h3>- Sarah</h3>
+      </div>
+      <div class="testimonial">
+        <img src="images/person2.jpg" alt="Ahmed outdoors" />
+        <p>“A very professional team and unforgettable thrill!”</p>
+        <h3>- Ahmed</h3>
+      </div>
+      <div class="testimonial">
+        <img src="images/person3.jpg" alt="Emma smiling" />
+        <p>“I can’t wait to come back for another adventure!”</p>
+        <h3>- Emma</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary CTA -->
+  <section class="cta">
+    <h2>Ready for your next thrill?</h2>
+    <a href="#contact" class="btn">Book Your Adventure</a>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" aria-label="Your Name" required>
+      <input type="email" placeholder="Your Email" aria-label="Your Email" required>
+      <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Extreme Adventures | Designed by Arooj</p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header / Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff4d4d;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff4d4d;
+}
+
+.btn {
+  background: #ff4d4d;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e63c3c;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('images/hero-bg.jpg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Sections */
+section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 38px;
+  margin-bottom: 25px;
+  color: #ff4d4d;
+}
+
+/* Services */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.service-card {
+  background: #111;
+  border-radius: 12px;
+  width: 300px;
+  padding: 35px;
+  transition: 0.3s;
+}
+
+.service-card img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.testimonial {
+  background: #111;
+  padding: 35px;
+  border-radius: 12px;
+  width: 300px;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #333;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  header {
+    padding: 15px 20px;
+  }
+  .hero h1 {
+    font-size: 45px;
+  }
+  section {
+    padding: 80px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero h1 {
+    font-size: 35px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  section {
+    padding: 60px 20px;
+  }
+}
+  

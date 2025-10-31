@@ -1,0 +1,416 @@
+
+
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header / Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+header .logo {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ff4d4d;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  color: #ff4d4d;
+  background: rgba(255,77,77,0.1);
+}
+
+/* Buttons */
+.btn {
+  background: #ff4d4d;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e63c3c;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('images/hero-bg.jpg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Sections */
+section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 38px;
+  margin-bottom: 25px;
+  color: #ff4d4d;
+}
+
+/* Services Section */
+.service-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.service {
+  background: #111;
+  border-radius: 12px;
+  width: 300px;
+  padding: 35px;
+  transition: 0.3s;
+}
+
+.service img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Testimonials */
+.testimonial-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.testimonial {
+  background: #111;
+  padding: 35px;
+  border-radius: 12px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Gallery Section */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery-item {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 200px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+/* CTA Section */
+.cta {
+  background: #111;
+  padding: 80px 20px;
+  margin: 60px 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.cta h2 {
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: #ff4d4d;
+}
+
+/* Contact Section */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: #222;
+  color: #fff;
+}
+
+/* Make placeholder visible */
+.contact input::placeholder,
+.contact textarea::placeholder,
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+
+/* For older browsers */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #bbb;
+}
+
+/* Checkout / CRUD Styles */
+.card-bg {
+  background: #111;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #fff;
+}
+
+.list-group-item {
+  background: #222;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.form-control, .form-select {
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255,77,77,0.15);
+  border-color: #ff4d4d;
+}
+
+.btn-danger {
+  background: #ff4d4d;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #e63c3c;
+}
+
+input.quantity-input {
+  width: 60px;
+  text-align: center;
+}
+
+a {
+  color: #ff4d4d;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #e63c3c;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  header {
+    padding: 15px 20px;
+  }
+  .hero h1 {
+    font-size: 45px;
+  }
+  section {
+    padding: 80px 30px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero h1 {
+    font-size: 35px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  section {
+    padding: 60px 20px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CV Section */
+.cv-section {
+  display: none;  /* initially hidden */
+  background: #111;
+  padding: 80px 60px;
+}
+
+.cv-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cv-item {
+  margin-bottom: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #222;
+  transition: 0.3s;
+}
+
+.cv-heading {
+  font-size: 24px;
+  padding: 15px 20px;
+  background: #000;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cv-details {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.cv-details ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* pehle 30px tha, thoda kam kar diya */
+  flex-wrap: wrap; /* agar screen chhoti ho to wrap ho jaye */
+}
+
+nav ul li a {
+  font-size: 14px; /* pehle 17px tha */
+  padding: 4px 8px; /* thoda compact padding */
+}
+.cv-section {
+  display: none;  /* initially hidden */
+  background: #111;
+  padding: 80px 60px;
+}

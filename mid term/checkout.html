@@ -1,0 +1,329 @@
+<<<<<<< HEAD
+
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Extreme Adventures</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+  body { 
+    font-family:"Poppins",sans-serif; 
+    background:#000; 
+    color:#fff; 
+  }
+  h1, h2, h3, h4, h5, h6, p, span, label, li, button, a {
+    color: #fff !important; /* Make all text white */
+  }
+  .card-bg { 
+    background:#111; 
+    border:none; 
+    border-radius:12px; 
+    padding:20px; 
+    margin-bottom:30px; 
+    color:#fff;
+  }
+  .form-control, .form-select { 
+    background:#222; 
+    color:#fff; 
+    border:1px solid #333; 
+  }
+  .form-control::placeholder, .form-select option { 
+    color:#bbb; 
+  }
+  .form-control:focus, .form-select:focus { 
+    box-shadow:0 0 0 0.2rem rgba(255,77,77,0.15); 
+    border-color:#ff4d4d; 
+    color:#fff; 
+  }
+  .list-group-item { 
+    background:#222; 
+    border:none; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    padding:12px 15px; 
+    border-radius:8px; 
+    margin-bottom:10px; 
+    color:#fff; 
+  }
+  .muted { color:#bbb; font-size:14px; }
+  .step { 
+    font-size:14px; 
+    padding:6px 10px; 
+    border-radius:999px; 
+    border:1px solid rgba(255,255,255,0.2); 
+    margin-right:5px; 
+    cursor:pointer; 
+    transition:0.3s; 
+    color:#fff; 
+  }
+  .step.active { 
+    background:#ff4d4d; 
+    color:#fff; 
+    border-color:#ff4d4d; 
+  }
+  .quantity-input { 
+    width:60px; 
+    text-align:center; 
+    background:#222; 
+    color:#fff; 
+    border:1px solid #333; 
+  }
+  .btn-remove { font-size:14px; padding:5px 10px; }
+  .total-row { 
+    display:flex; 
+    justify-content:space-between; 
+    margin-bottom:10px; 
+    font-weight:600; 
+    color:#fff; 
+  }
+  a { color:#ff4d4d; text-decoration:underline; }
+  a:hover { color:#e63c3c; }
+  .btn-outline-light { color:#fff; border-color:#ff4d4d; }
+  .btn-outline-light:hover { background:#ff4d4d; color:#fff; }
+  #cardFields input, #cardFields select { background:#222; color:#fff; border:1px solid #333; }
+  .form-check-label { color:#fff; }
+  .invalid-feedback { color:#ff6666; }
+  button, input, select, textarea { color:#fff; }
+</style>
+</head>
+<body>
+
+<main class="container page-container mt-5 pt-5">
+
+  <!-- Progress Steps -->
+  <div class="mb-4 d-flex align-items-center gap-2 flex-wrap">
+    <span class="step active" data-step="cart">Cart</span>
+    <span class="step" data-step="customer">Customer & Shipping</span>
+    <span class="step" data-step="payment">Payment</span>
+    <span class="step" data-step="review">Review</span>
+  </div>
+
+  <!-- Cart Section -->
+  <div id="cartSection" class="checkout-section card card-bg p-4">
+    <h2 class="h5 mb-3">Your Cart</h2>
+    <ul id="cartItems" class="list-unstyled"></ul>
+    <div class="total-row"><span>Subtotal:</span><span id="subtotal">₨ 0</span></div>
+    <div class="total-row"><span>Shipping:</span><span id="shipping">₨ 500</span></div>
+    <div class="total-row"><span>Tax:</span><span id="tax">₨ 0</span></div>
+    <div class="total-row"><span>Grand Total:</span><span id="grandTotal">₨ 0</span></div>
+    <div class="input-group mt-3">
+      <input type="text" class="form-control" placeholder="Coupon code" id="couponCode">
+      <button class="btn btn-outline-light" id="applyCoupon">Apply</button>
+    </div>
+  </div>
+
+  <!-- Customer Section -->
+  <div id="customerSection" class="checkout-section card card-bg p-4" style="display:none;">
+    <h2 class="h5 mb-3">Customer & Shipping</h2>
+    <form id="checkoutForm">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+        <div class="invalid-feedback">Name must be at least 3 characters.</div>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email">
+        <div class="invalid-feedback">Enter a valid email address.</div>
+      </div>
+      <div class="mb-3">
+        <input type="tel" class="form-control" id="phone" placeholder="Phone">
+        <div class="invalid-feedback">Enter at least 10 digits.</div>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="address" placeholder="Address">
+        <div class="invalid-feedback">Address is required.</div>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="city" placeholder="City">
+        <div class="invalid-feedback">City is required.</div>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="postal" placeholder="Postal / ZIP">
+        <div class="invalid-feedback">Enter 4-6 digit postal code.</div>
+      </div>
+      <div class="mb-3">
+        <select class="form-select" id="country">
+          <option value="">Choose Country</option>
+          <option>Pakistan</option>
+          <option>USA</option>
+          <option>UK</option>
+        </select>
+        <div class="invalid-feedback">Select a country.</div>
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="billingSame">
+        <label class="form-check-label muted" for="billingSame">Billing same as shipping</label>
+      </div>
+    </form>
+  </div>
+
+  <!-- Payment Section -->
+  <div id="paymentSection" class="checkout-section card card-bg p-4" style="display:none;">
+    <h2 class="h5 mb-3">Payment</h2>
+    <div class="mb-3">
+      <div class="form-check"><input type="radio" class="form-check-input" name="paymentMethod" value="card"><label class="form-check-label">Card</label></div>
+      <div class="form-check"><input type="radio" class="form-check-input" name="paymentMethod" value="cod"><label class="form-check-label">Cash on Delivery</label></div>
+      <div class="form-check"><input type="radio" class="form-check-input" name="paymentMethod" value="wallet"><label class="form-check-label">Wallet</label></div>
+      <div class="invalid-feedback d-block" id="paymentError">Select a payment method.</div>
+    </div>
+
+    <div id="cardFields">
+      <div class="mb-3"><input type="text" class="form-control" id="cardName" placeholder="Card Holder Name"><div class="invalid-feedback">Required for card payment.</div></div>
+      <div class="mb-3"><input type="text" class="form-control" id="cardNumber" placeholder="Card Number"><div class="invalid-feedback">Required for card payment.</div></div>
+      <div class="row g-3">
+        <div class="col-6"><input type="text" class="form-control" id="expiry" placeholder="MM/YY"><div class="invalid-feedback">Required for card payment.</div></div>
+        <div class="col-6"><input type="password" class="form-control" id="cvv" placeholder="CVV"><div class="invalid-feedback">Required for card payment.</div></div>
+      </div>
+      <div class="mb-3 mt-3">
+        <select class="form-select" id="cardType"><option>Visa</option><option>Mastercard</option><option>Amex</option></select>
+      </div>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" id="terms">
+      <label class="form-check-label muted" for="terms">I agree to the <a href="#">terms & conditions</a></label>
+      <div class="invalid-feedback d-block" id="termsError">You must accept terms.</div>
+    </div>
+    <button class="btn btn-danger w-100" id="placeOrder">Place Order</button>
+  </div>
+
+  <!-- Review Section -->
+  <div id="reviewSection" class="checkout-section card card-bg p-4" style="display:none;">
+    <h2 class="h5 mb-3">Review Your Order</h2>
+    <p>Order review will be shown here before final submission.</p>
+  </div>
+
+</main>
+
+<script>
+$(document).ready(function(){
+
+  // Sample Cart Items
+  let cart = [
+    { id:1, name:"Skydiving Experience", price:12000, quantity:1 },
+    { id:2, name:"Mountain Climb", price:12000, quantity:2 }
+  ];
+  const shippingCost = 500;
+  let taxRate = 0.1;
+
+  function renderCart(){
+    let subtotal = 0;
+    $("#cartItems").empty();
+    cart.forEach(item=>{
+      let totalPrice = item.price * item.quantity;
+      subtotal += totalPrice;
+      $("#cartItems").append(`
+        <li class="list-group-item">
+          <div>
+            <strong>${item.name}</strong><br>
+            <span class="muted">₨ ${item.price} x </span>
+            <input type="number" class="quantity-input" min="1" data-id="${item.id}" value="${item.quantity}">
+          </div>
+          <div>
+            <span>₨ ${totalPrice}</span>
+            <button class="btn btn-sm btn-danger btn-remove" data-id="${item.id}">Remove</button>
+          </div>
+        </li>
+      `);
+    });
+    let tax = Math.round(subtotal * taxRate);
+    let grandTotal = subtotal + shippingCost + tax;
+    $("#subtotal").text("₨ " + subtotal);
+    $("#tax").text("₨ " + tax);
+    $("#grandTotal").text("₨ " + grandTotal);
+  }
+  renderCart();
+
+  // Quantity change
+  $(document).on("input", ".quantity-input", function(){
+    let id = $(this).data("id");
+    let value = parseInt($(this).val());
+    if(value<1) value=1;
+    cart = cart.map(item=> item.id===id ? {...item, quantity:value} : item);
+    renderCart();
+  });
+
+  // Remove item
+  $(document).on("click", ".btn-remove", function(){
+    let id = $(this).data("id");
+    cart = cart.filter(item=>item.id!==id);
+    renderCart();
+  });
+
+  // Coupon
+  $("#applyCoupon").click(function(){
+    let code = $("#couponCode").val().trim();
+    if(code.toLowerCase()==="discount10"){
+      alert("Coupon applied! 10% off subtotal");
+      cart = cart.map(item=>({...item, price:Math.round(item.price*0.9)}));
+      renderCart();
+    } else { alert("Invalid coupon"); }
+  });
+
+  // Step navigation
+  $(".step").click(function(){
+    let step = $(this).data("step");
+    $(".step").removeClass("active");
+    $(this).addClass("active");
+    $(".checkout-section").hide();
+    if(step==="cart") $("#cartSection").show();
+    else if(step==="customer") $("#customerSection").show();
+    else if(step==="payment") $("#paymentSection").show();
+    else if(step==="review") $("#reviewSection").show();
+  });
+
+  // Payment fields toggle
+  function toggleCardFields(){
+    let selected = $('input[name="paymentMethod"]:checked').val();
+    if(selected==='card') $("#cardFields").show().find('input,select').prop('disabled',false);
+    else $("#cardFields").hide().find('input,select').prop('disabled',true);
+  }
+  $('input[name="paymentMethod"]').change(toggleCardFields);
+  toggleCardFields();
+
+  // Form validation
+  function validateForm(){
+    let valid = true;
+    if($("#fullName").val().trim().length<3){ $("#fullName").addClass("is-invalid"); valid=false; } else { $("#fullName").removeClass("is-invalid"); }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test($("#email").val().trim())){ $("#email").addClass("is-invalid"); valid=false; } else { $("#email").removeClass("is-invalid"); }
+    if(!/^\d{10,}$/.test($("#phone").val().trim())){ $("#phone").addClass("is-invalid"); valid=false; } else { $("#phone").removeClass("is-invalid"); }
+    if($("#address").val().trim()===""){ $("#address").addClass("is-invalid"); valid=false; } else { $("#address").removeClass("is-invalid"); }
+    if($("#city").val().trim()===""){ $("#city").addClass("is-invalid"); valid=false; } else { $("#city").removeClass("is-invalid"); }
+    if(!/^\d{4,6}$/.test($("#postal").val().trim())){ $("#postal").addClass("is-invalid"); valid=false; } else { $("#postal").removeClass("is-invalid"); }
+    if($("#country").val()===""){ $("#country").addClass("is-invalid"); valid=false; } else { $("#country").removeClass("is-invalid"); }
+    if(!$('input[name="paymentMethod"]:checked').val()){ $("#paymentError").show(); valid=false; } else { $("#paymentError").hide(); }
+    if($('input[name="paymentMethod"]:checked').val()==="card"){
+      ["#cardName","#cardNumber","#expiry","#cvv"].forEach(id=>{
+        if($(id).val().trim()===""){ $(id).addClass("is-invalid"); valid=false; } else { $(id).removeClass("is-invalid"); }
+      });
+    }
+    if(!$("#terms").prop("checked")){ $("#termsError").show(); valid=false; } else { $("#termsError").hide(); }
+    return valid;
+  }
+
+  // Place Order
+  $("#placeOrder").click(function(e){
+    e.preventDefault();
+    if(validateForm()){
+      alert("Order placed successfully!");
+      $(".checkout-section").hide();
+      $("#reviewSection").show();
+      $(".step").removeClass("active");
+      $(".step[data-step='review']").addClass("active");
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
+>>>>>>> 1e15ed7 (Added Task1, Task2, Task3, Task4 folders with respective code)
