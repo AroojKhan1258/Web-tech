@@ -1,0 +1,699 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extreme Adventures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Extreme Adventures</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Adventures</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Live the Extreme</h1>
+      <p>Dare to experience the thrill — your next adventure starts here!</p>
+      <a href="#services" class="btn">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <main>
+  <section class="services" id="services">
+    <h2>Our Top Adventures</h2>
+    <div class="service-boxes">
+      <div class="service">
+        <img src="images/skydiving.png" alt="Person skydiving" />
+        <h3>Skydiving</h3>
+        <p>Feel the wind rush as you freefall from 10,000 feet!</p>
+      </div>
+      <div class="service">
+        <img src="images/surfing.png" alt="Surfing on waves" />
+        <h3>Surfing</h3>
+        <p>Ride the waves and conquer the ocean.</p>
+      </div>
+      <div class="service">
+        <img src="images/mountain.png" alt="Mountain climbing adventure" />
+        <h3>Mountain Climbing</h3>
+        <p>Reach new heights with our expert guides.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Adventurers Say</h2>
+    <div class="testimonial-boxes">
+      <div class="testimonial">
+        <img src="images/person1.jpg" alt="Sarah smiling" />
+        <p>“Skydiving was life‑changing. Absolutely incredible!”</p>
+        <h3>- Sarah</h3>
+      </div>
+      <div class="testimonial">
+        <img src="images/person2.jpg" alt="Ahmed outdoors" />
+        <p>“A very professional team and unforgettable thrill!”</p>
+        <h3>- Ahmed</h3>
+      </div>
+      <div class="testimonial">
+        <img src="images/person3.jpg" alt="Emma smiling" />
+        <p>“I can’t wait to come back for another adventure!”</p>
+        <h3>- Emma</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary CTA -->
+  <section class="cta">
+    <h2>Ready for your next thrill?</h2>
+    <a href="#contact" class="btn">Book Your Adventure</a>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" aria-label="Your Name" required>
+      <input type="email" placeholder="Your Email" aria-label="Your Email" required>
+      <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Extreme Adventures | Designed by Arooj</p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header / Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff4d4d;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff4d4d;
+}
+
+.btn {
+  background: #ff4d4d;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e63c3c;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('images/hero-bg.jpg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Sections */
+section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 38px;
+  margin-bottom: 25px;
+  color: #ff4d4d;
+}
+
+/* Services */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.service-card {
+  background: #111;
+  border-radius: 12px;
+  width: 300px;
+  padding: 35px;
+  transition: 0.3s;
+}
+
+.service-card img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.testimonial {
+  background: #111;
+  padding: 35px;
+  border-radius: 12px;
+  width: 300px;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #333;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  header {
+    padding: 15px 20px;
+  }
+  .hero h1 {
+    font-size: 45px;
+  }
+  section {
+    padding: 80px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero h1 {
+    font-size: 35px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  section {
+    padding: 60px 20px;
+  }
+}
+  
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — Extreme Adventures</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body { background:#000; color:#fff; font-family: 'Poppins', sans-serif; }
+    .page-container { padding: 90px 15px 60px; }
+    .card-bg { background:#111; border:none; color:#fff; }
+    .form-control, .form-select { background:#222; color:#fff; border:1px solid #333; }
+    .form-control:focus, .form-select:focus { box-shadow: 0 0 0 0.2rem rgba(255,77,77,0.15); border-color:#ff4d4d; }
+    .list-group-item { background: transparent; border-color: rgba(255,255,255,0.06); }
+    .muted { color:#bbb; }
+    .step { font-size:14px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.06); }
+    .step.active { background:#ff4d4d; color:#fff; border-color:#ff4d4d; }
+    .sticky-summary { position: sticky; top: 100px; }
+    @media (max-width: 991px) { .sticky-summary { position: static; top: auto; } }
+  </style>
+</head>
+<body>
+  <main class="container page-container">
+    <!-- Progress header -->
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h1 class="h4">Checkout</h1>
+      <nav aria-label="Progress">
+        <ol class="list-unstyled d-flex gap-2 mb-0">
+          <li class="step">Cart</li>
+          <li class="step">Address</li>
+          <li class="step active">Payment</li>
+          <li class="step">Review</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row g-4">
+      <!-- FORM COLUMN -->
+      <div class="col-12 col-md-7">
+        <form id="checkout-form">
+          <div class="card card-bg p-4">
+            <div class="card-body">
+              <h2 class="h5 mb-3">Customer & Shipping</h2>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label for="fullName" class="form-label">Full name</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                  <div class="invalid-feedback">Full name must be at least 3 characters.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="+1 555 555 555">
+                  <div class="invalid-feedback">Phone must be at least 10 digits.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="address" placeholder="123 Street, City">
+                  <div class="invalid-feedback">Address is required.</div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" placeholder="City">
+                  <div class="invalid-feedback">City is required.</div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <label for="postal" class="form-label">Postal / ZIP</label>
+                  <input type="text" class="form-control" id="postal" placeholder="00000">
+                  <div class="invalid-feedback">Postal code must be numeric, 4–6 digits.</div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <label for="country" class="form-label">Country</label>
+                  <select id="country" class="form-select">
+                    <option value="">Choose...</option>
+                    <option>Pakistan</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>United Arab Emirates</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a country.</div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="billingSame">
+                    <label class="form-check-label muted" for="billingSame">Billing same as shipping</label>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <!-- Payment -->
+              <h2 class="h5 mb-3">Payment</h2>
+
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="payCard" value="card">
+                  <label class="form-check-label" for="payCard">Card</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="payCOD" value="cod">
+                  <label class="form-check-label" for="payCOD">Cash on Delivery</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="payWallet" value="wallet">
+                  <label class="form-check-label" for="payWallet">Wallet</label>
+                </div>
+              </div>
+
+              <div id="cardFields">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="cardName" class="form-label">Card holder name</label>
+                    <input type="text" id="cardName" class="form-control" placeholder="Name on card">
+                    <div class="invalid-feedback">Card holder name required.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="cardNumber" class="form-label">Card number</label>
+                    <input type="text" id="cardNumber" class="form-control" placeholder="xxxx xxxx xxxx xxxx">
+                    <div class="invalid-feedback">Please enter a valid card number.</div>
+                  </div>
+
+                  <div class="col-6 col-md-4">
+                    <label for="expiry" class="form-label">Expiry (MM/YY)</label>
+                    <input type="text" id="expiry" class="form-control" placeholder="MM/YY">
+                    <div class="invalid-feedback">Enter expiry in MM/YY format.</div>
+                  </div>
+
+                  <div class="col-6 col-md-4">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="password" id="cvv" class="form-control" placeholder="***" maxlength="4">
+                    <div class="invalid-feedback">Enter 3 or 4 digit CVV.</div>
+                  </div>
+
+                  <div class="col-12 col-md-4">
+                    <label for="cardType" class="form-label">Card type</label>
+                    <select id="cardType" class="form-select">
+                      <option>Visa</option>
+                      <option>Mastercard</option>
+                      <option>Amex</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="terms">
+                <label class="form-check-label muted" for="terms">I agree to the <a href="#" class="text-decoration-underline">terms & conditions</a></label>
+                <div class="invalid-feedback">You must agree before placing the order.</div>
+              </div>
+
+              <button class="btn btn-danger w-100" id="placeOrder" type="submit">Place Order</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- SUMMARY COLUMN -->
+      <div class="col-12 col-md-5">
+        <aside class="sticky-summary">
+          <div class="card card-bg p-3 mb-3">
+            <h3 class="h6 mb-3">Order Summary</h3>
+
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fw-bold">Skydiving Experience</div>
+                  <small class="muted">Quantity: 1</small>
+                </div>
+                <span>₨ 12,000</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fw-bold">Mountain Climb</div>
+                  <small class="muted">Quantity: 2</small>
+                </div>
+                <span>₨ 24,000</span>
+              </li>
+            </ul>
+
+            <dl class="row mb-0">
+              <dt class="col-6 muted">Subtotal</dt>
+              <dd class="col-6 text-end">₨ 36,000</dd>
+              <dt class="col-6 muted">Shipping</dt>
+              <dd class="col-6 text-end">₨ 500</dd>
+              <dt class="col-6 muted">Tax</dt>
+              <dd class="col-6 text-end">₨ 3,650</dd>
+              <dt class="col-6 fw-bold">Grand Total</dt>
+              <dd class="col-6 fw-bold text-end">₨ 40,150</dd>
+            </dl>
+
+            <hr class="my-3">
+
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Coupon code" aria-label="Coupon code">
+              <button class="btn btn-outline-light" type="button">Apply</button>
+            </div>
+          </div>
+
+          <div class="card card-bg p-3">
+            <h4 class="h6 mb-2">Payment Methods</h4>
+            <p class="muted small">Card, COD, Wallet supported. Card fields appear when Card is selected.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    $(document).ready(function(){
+
+      function toggleCardFields() {
+        const selected = $('input[name="paymentMethod"]:checked').val();
+        if(selected === 'card') {
+          $('#cardFields').show().find('input, select').prop('disabled', false);
+        } else {
+          $('#cardFields').hide().find('input, select').prop('disabled', true);
+        }
+      }
+
+      $('input[name="paymentMethod"]').change(toggleCardFields);
+      toggleCardFields();
+
+      $('#checkout-form').submit(function(e){
+        e.preventDefault();
+        let valid = true;
+
+        // Full Name
+        const fullName = $('#fullName').val().trim();
+        if(fullName.length < 3){
+          $('#fullName').addClass('is-invalid').removeClass('is-valid');
+          valid = false;
+        } else { $('#fullName').addClass('is-valid').removeClass('is-invalid'); }
+
+        // Email
+        const email = $('#email').val().trim();
+        const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailReg.test(email)){
+          $('#email').addClass('is-invalid').removeClass('is-valid');
+          valid = false;
+        } else { $('#email').addClass('is-valid').removeClass('is-invalid'); }
+
+        // Phone
+        const phone = $('#phone').val().trim();
+        const phoneReg = /^\d{10,}$/;
+        if(!phoneReg.test(phone)){
+          $('#phone').addClass('is-invalid').removeClass('is-valid');
+          valid = false;
+        } else { $('#phone').addClass('is-valid').removeClass('is-invalid'); }
+
+        // Address
+        const address = $('#address').val().trim();
+        if(address===''){ $('#address').addClass('is-invalid').removeClass('is-valid'); valid=false;}
+        else {$('#address').addClass('is-valid').removeClass('is-invalid');}
+
+        // City
+        const city = $('#city').val().trim();
+        if(city===''){ $('#city').addClass('is-invalid').removeClass('is-valid'); valid=false;}
+        else {$('#city').addClass('is-valid').removeClass('is-invalid');}
+
+        // Postal
+        const postal = $('#postal').val().trim();
+        const postalReg = /^\d{4,6}$/;
+        if(!postalReg.test(postal)){ $('#postal').addClass('is-invalid').removeClass('is-valid'); valid=false;}
+        else {$('#postal').addClass('is-valid').removeClass('is-invalid');}
+
+        // Country
+        if($('#country').val()===''){ $('#country').addClass('is-invalid').removeClass('is-valid'); valid=false;}
+        else {$('#country').addClass('is-valid').removeClass('is-invalid');}
+
+        // Payment method
+        if($('input[name="paymentMethod"]:checked').length===0){ valid=false; alert("Select a payment method"); }
+
+        // Card Fields if Card selected
+        if($('input[name="paymentMethod"]:checked').val() === 'card'){
+          const cardName = $('#cardName').val().trim();
+          if(cardName===''){ $('#cardName').addClass('is-invalid').removeClass('is-valid'); valid=false;} 
+          else {$('#cardName').addClass('is-valid').removeClass('is-invalid');}
+
+          const cardNumber = $('#cardNumber').val().trim();
+          const cardReg = /^\d{13,19}$/;
+          if(!cardReg.test(cardNumber)){ $('#cardNumber').addClass('is-invalid').removeClass('is-valid'); valid=false;} 
+          else {$('#cardNumber').addClass('is-valid').removeClass('is-invalid');}
+
+          const expiry = $('#expiry').val().trim();
+          const expiryReg = /^(0[1-9]|1[0-2])\/\d{2}$/;
+          if(!expiryReg.test(expiry)){ $('#expiry').addClass('is-invalid').removeClass('is-valid'); valid=false;} 
+          else {$('#expiry').addClass('is-valid').removeClass('is-invalid');}
+
+          const cvv = $('#cvv').val().trim();
+          const cvvReg = /^\d{3,4}$/;
+          if(!cvvReg.test(cvv)){ $('#cvv').addClass('is-invalid').removeClass('is-valid'); valid=false;} 
+          else {$('#cvv').addClass('is-valid').removeClass('is-invalid');}
+        }
+
+        // Terms checkbox
+        if(!$('#terms').is(':checked')){ $('#terms').addClass('is-invalid'); valid=false;}
+        else { $('#terms').removeClass('is-invalid'); }
+
+        // Scroll to first invalid
+        if(!valid){
+          $('html, body').animate({
+            scrollTop: $('.is-invalid').first().offset().top - 80
+          }, 500);
+          return false;
+        }
+
+        alert("Order placed successfully (demo)!");
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+

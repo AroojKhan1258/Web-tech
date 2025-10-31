@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extreme Adventures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Extreme Adventures</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Adventures</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#gallery">Adventure Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Live the Extreme</h1>
+      <p>Dare to experience the thrill — your next adventure starts here!</p>
+      <a href="#contact" class="btn">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <main>
+    <section class="services" id="services">
+      <h2>Our Top Adventures</h2>
+      <div class="service-boxes">
+        <div class="service">
+          <img src="images/skydiving.png" alt="Person skydiving" />
+          <h3>Skydiving</h3>
+          <p>Feel the wind rush as you freefall from 10,000 feet!</p>
+        </div>
+        <div class="service">
+          <img src="images/surfing.png" alt="Surfing on waves" />
+          <h3>Surfing</h3>
+          <p>Ride the waves and conquer the ocean.</p>
+        </div>
+        <div class="service">
+          <img src="images/mountain.png" alt="Mountain climbing adventure" />
+          <h3>Mountain Climbing</h3>
+          <p>Reach new heights with our expert guides.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <h2>What Adventurers Say</h2>
+      <div class="testimonial-boxes">
+        <div class="testimonial">
+          <img src="images/person1.jpg" alt="Sarah smiling" />
+          <p>“Skydiving was life‑changing. Absolutely incredible!”</p>
+          <h3>- Sarah</h3>
+        </div>
+        <div class="testimonial">
+          <img src="images/person2.jpg" alt="Ahmed outdoors" />
+          <p>“A very professional team and unforgettable thrill!”</p>
+          <h3>- Ahmed</h3>
+        </div>
+        <div class="testimonial">
+          <img src="images/person3.jpg" alt="Emma smiling" />
+          <p>“I can’t wait to come back for another adventure!”</p>
+          <h3>- Emma</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+      <h2>Adventure Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/gallery1.jpg" alt="Adventure 1"></div>
+        <div class="gallery-item"><img src="images/gallery2.jpg" alt="Adventure 2"></div>
+        <div class="gallery-item"><img src="images/gallery3.jpg" alt="Adventure 3"></div>
+        <div class="gallery-item"><img src="images/gallery4.jpg" alt="Adventure 4"></div>
+        <div class="gallery-item"><img src="images/gallery5.jpg" alt="Adventure 5"></div>
+        <div class="gallery-item"><img src="images/gallery6.jpg" alt="Adventure 6"></div>
+      </div>
+    </section>
+
+    <!-- Secondary CTA -->
+    <section class="cta">
+      <h2>Ready for your next thrill?</h2>
+      <a href="#contact" class="btn">Book Your Adventure</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" aria-label="Your Name" required>
+        <input type="email" placeholder="Your Email" aria-label="Your Email" required>
+        <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Extreme Adventures | Designed by Arooj</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for buttons/links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header / Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+header .logo {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ff4d4d;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  color: #ff4d4d;
+  background: rgba(255,77,77,0.1);
+}
+
+/* Buttons */
+.btn {
+  background: #ff4d4d;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e63c3c;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('images/hero-bg.jpg') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Sections */
+section {
+  padding: 100px 60px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 38px;
+  margin-bottom: 25px;
+  color: #ff4d4d;
+}
+
+/* Services Section */
+.service-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.service {
+  background: #111;
+  border-radius: 12px;
+  width: 300px;
+  padding: 35px;
+  transition: 0.3s;
+}
+
+.service img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255,77,77,0.4);
+}
+
+/* Testimonials */
+.testimonial-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.testimonial {
+  background: #111;
+  padding: 35px;
+  border-radius: 12px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Gallery Section */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery-item {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 200px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+/* CTA Section */
+.cta {
+  background: #111;
+  padding: 80px 20px;
+  margin: 60px 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.cta h2 {
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: #ff4d4d;
+}
+
+/* Contact Section */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: #222;
+  color: #fff;
+}
+
+/* Make placeholder visible */
+.contact input::placeholder,
+.contact textarea::placeholder,
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+
+/* For older browsers */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #bbb;
+}
+
+/* Checkout / CRUD Styles */
+.card-bg {
+  background: #111;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #fff;
+}
+
+.list-group-item {
+  background: #222;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.form-control, .form-select {
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255,77,77,0.15);
+  border-color: #ff4d4d;
+}
+
+.btn-danger {
+  background: #ff4d4d;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #e63c3c;
+}
+
+input.quantity-input {
+  width: 60px;
+  text-align: center;
+}
+
+a {
+  color: #ff4d4d;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #e63c3c;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  header {
+    padding: 15px 20px;
+  }
+  .hero h1 {
+    font-size: 45px;
+  }
+  section {
+    padding: 80px 30px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero h1 {
+    font-size: 35px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  section {
+    padding: 60px 20px;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Extreme Adventures</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+  body { 
+    font-family:"Poppins",sans-serif; 
+    background:#000; 
+    color:#fff; 
+  }
+  h1, h2, h3, h4, h5, h6, p, span, label, li, button, a {
+    color: #fff !important; /* Make all text white */
+  }
+  .card-bg { 
+    background:#111; 
+    border:none; 
+    border-radius:12px; 
+    padding:20px; 
+    margin-bottom:30px; 
+    color:#fff;
+  }
+  .form-control, .form-select { 
+    background:#222; 
+    color:#fff; 
+    border:1px solid #333; 
+  }
+  .form-control::placeholder, .form-select option { 
+    color:#bbb; 
+  }
+  .form-control:focus, .form-select:focus { 
+    box-shadow:0 0 0 0.2rem rgba(255,77,77,0.15); 
+    border-color:#ff4d4d; 
+    color:#fff; 
+  }
+  .list-group-item { 
+    background:#222; 
+    border:none; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    padding:12px 15px; 
+    border-radius:8px; 
+    margin-bottom:10px; 
+    color:#fff; 
+  }
+  .muted { color:#bbb; font-size:14px; }
+  .step { 
+    font-size:14px; 
+    padding:6px 10px; 
+    border-radius:999px; 
+    border:1px solid rgba(255,255,255,0.2); 
+    margin-right:5px; 
+    cursor:pointer; 
+    transition:0.3s; 
+    color:#fff; 
+  }
+  .step.active { 
+    background:#ff4d4d; 
+    color:#fff; 
+    border-color:#ff4d4d; 
+  }
+  .quantity-input { 
+    width:60px; 
+    text-align:center; 
+    background:#222; 
+    color:#fff; 
+    border:1px solid #333; 
+  }
+  .btn-remove { font-size:14px; padding:5px 10px; }
+  .total-row { 
+    display:flex; 
+    justify-content:space-between; 
+    margin-bottom:10px; 
+    font-weight:600; 
+    color:#fff; 
+  }
+  a { color:#ff4d4d; text-decoration:underline; }
+  a:hover { color:#e63c3c; }
+  .btn-outline-light { color:#fff; border-color:#ff4d4d; }
+  .btn-outline-light:hover { background:#ff4d4d; color:#fff; }
+  #cardFields input, #cardFields select { background:#222; color:#fff; border:1px solid #333; }
+  .form-check-label { color:#fff; }
+  .invalid-feedback { color:#ff6666; }
+  button, input, select, textarea { color:#fff; }
+</style>
+</head>
+<body>
+
+<main class="container page-container mt-5 pt-5">
+
+  <!-- Progress Steps -->
+  <div class="mb-4 d-flex align-items-center gap-2 flex-wrap">
+    <span class="step active" data-step="cart">Cart</span>
+    <span class="step" data-step="customer">Customer & Shipping</span>
+    <span class="step" data-step="payment">Payment</span>
+    <span class="step" data-step="review">Review</span>
+  </div>
+
+  <!-- Cart Section -->
+  <div id="cartSection" class="checkout-section card card-bg p-4">
+    <h2 class="h5 mb-3">Your Cart</h2>
+    <ul id="cartItems" class="list-unstyled"></ul>
+    <div class="total-row"><span>Subtotal:</span><span id="subtotal">₨ 0</span></div>
+    <div class="total-row"><span>Shipping:</span><span id="shipping">₨ 500</span></div>
+    <div class="total-row"><span>Tax:</span><span id="tax">₨ 0</span></div>
+    <div class="total-row"><span>Grand Total:</span><span id="grandTotal">₨ 0</span></div>
+    <div class="input-group mt-3">
+      <input type="text" class="form-control" placeholder="Coupon code" id="couponCode">
+      <button class="btn btn-outline-light" id="applyCoupon">Apply</button>
+    </div>
+  </div>
+
+  <!-- Customer Section -->
+  <div id="customerSection" class="checkout-section card card-bg p-4" style="display:none;">
+    <h2 class="h5 mb-3">Customer & Shipping</h2>
+    <form id="checkoutForm">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+        <div class="invalid-feedback">Name must be at least 3 characters.</div>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email">
+        <div class="invalid-feedback">Enter a valid email address.</div>
+      </div>
+      <div class="mb-3">
+        <input type="tel" class="form-control" id="phone" placeholder="Phone">
+        <div class="invalid-feedback">Enter at least 10 digits.</div>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="address" placeholder="Address">
+        <div class="invalid-feedback">Address is required.</div>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="city" placeholder="City">
+        <div class="invalid-feedback">City is required.</div>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="postal" placeholder="Postal / ZIP">
+        <div class="invalid-feedback">Enter 4-6 digit postal code.</div>
+      </div>
+      <div class="mb-3">
+        <select class="form-select" id="country">
+          <option value="">Choose Country</option>
+          <option>Pakistan</option>
+          <option>USA</option>
+          <option>UK</option>
+        </select>
+        <div class="invalid-feedback">Select a country.</div>
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="billingSame">
+        <label class="form-check-label muted" for="billingSame">Billing same as shipping</label>
+      </div>
+    </form>
+  </div>
+
+  <!-- Payment Section -->
+  <div id="paymentSection" class="checkout-section card card-bg p-4" style="display:none;">
+    <h2 class="h5 mb-3">Payment</h2>
+    <div class="mb-3">
+      <div class="form-check"><input type="radio" class="form-check-input" name="paymentMethod" value="card"><label class="form-check-label">Card</label></div>
+      <div class="form-check"><input type="radio" class="form-check-input" name="paymentMethod" value="cod"><label class="form-check-label">Cash on Delivery</label></div>
+      <div class="form-check"><input type="radio" class="form-check-input" name="paymentMethod" value="wallet"><label class="form-check-label">Wallet</label></div>
+      <div class="invalid-feedback d-block" id="paymentError">Select a payment method.</div>
+    </div>
+
+    <div id="cardFields">
+      <div class="mb-3"><input type="text" class="form-control" id="cardName" placeholder="Card Holder Name"><div class="invalid-feedback">Required for card payment.</div></div>
+      <div class="mb-3"><input type="text" class="form-control" id="cardNumber" placeholder="Card Number"><div class="invalid-feedback">Required for card payment.</div></div>
+      <div class="row g-3">
+        <div class="col-6"><input type="text" class="form-control" id="expiry" placeholder="MM/YY"><div class="invalid-feedback">Required for card payment.</div></div>
+        <div class="col-6"><input type="password" class="form-control" id="cvv" placeholder="CVV"><div class="invalid-feedback">Required for card payment.</div></div>
+      </div>
+      <div class="mb-3 mt-3">
+        <select class="form-select" id="cardType"><option>Visa</option><option>Mastercard</option><option>Amex</option></select>
+      </div>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" id="terms">
+      <label class="form-check-label muted" for="terms">I agree to the <a href="#">terms & conditions</a></label>
+      <div class="invalid-feedback d-block" id="termsError">You must accept terms.</div>
+    </div>
+    <button class="btn btn-danger w-100" id="placeOrder">Place Order</button>
+  </div>
+
+  <!-- Review Section -->
+  <div id="reviewSection" class="checkout-section card card-bg p-4" style="display:none;">
+    <h2 class="h5 mb-3">Review Your Order</h2>
+    <p>Order review will be shown here before final submission.</p>
+  </div>
+
+</main>
+
+<script>
+$(document).ready(function(){
+
+  // Sample Cart Items
+  let cart = [
+    { id:1, name:"Skydiving Experience", price:12000, quantity:1 },
+    { id:2, name:"Mountain Climb", price:12000, quantity:2 }
+  ];
+  const shippingCost = 500;
+  let taxRate = 0.1;
+
+  function renderCart(){
+    let subtotal = 0;
+    $("#cartItems").empty();
+    cart.forEach(item=>{
+      let totalPrice = item.price * item.quantity;
+      subtotal += totalPrice;
+      $("#cartItems").append(`
+        <li class="list-group-item">
+          <div>
+            <strong>${item.name}</strong><br>
+            <span class="muted">₨ ${item.price} x </span>
+            <input type="number" class="quantity-input" min="1" data-id="${item.id}" value="${item.quantity}">
+          </div>
+          <div>
+            <span>₨ ${totalPrice}</span>
+            <button class="btn btn-sm btn-danger btn-remove" data-id="${item.id}">Remove</button>
+          </div>
+        </li>
+      `);
+    });
+    let tax = Math.round(subtotal * taxRate);
+    let grandTotal = subtotal + shippingCost + tax;
+    $("#subtotal").text("₨ " + subtotal);
+    $("#tax").text("₨ " + tax);
+    $("#grandTotal").text("₨ " + grandTotal);
+  }
+  renderCart();
+
+  // Quantity change
+  $(document).on("input", ".quantity-input", function(){
+    let id = $(this).data("id");
+    let value = parseInt($(this).val());
+    if(value<1) value=1;
+    cart = cart.map(item=> item.id===id ? {...item, quantity:value} : item);
+    renderCart();
+  });
+
+  // Remove item
+  $(document).on("click", ".btn-remove", function(){
+    let id = $(this).data("id");
+    cart = cart.filter(item=>item.id!==id);
+    renderCart();
+  });
+
+  // Coupon
+  $("#applyCoupon").click(function(){
+    let code = $("#couponCode").val().trim();
+    if(code.toLowerCase()==="discount10"){
+      alert("Coupon applied! 10% off subtotal");
+      cart = cart.map(item=>({...item, price:Math.round(item.price*0.9)}));
+      renderCart();
+    } else { alert("Invalid coupon"); }
+  });
+
+  // Step navigation
+  $(".step").click(function(){
+    let step = $(this).data("step");
+    $(".step").removeClass("active");
+    $(this).addClass("active");
+    $(".checkout-section").hide();
+    if(step==="cart") $("#cartSection").show();
+    else if(step==="customer") $("#customerSection").show();
+    else if(step==="payment") $("#paymentSection").show();
+    else if(step==="review") $("#reviewSection").show();
+  });
+
+  // Payment fields toggle
+  function toggleCardFields(){
+    let selected = $('input[name="paymentMethod"]:checked').val();
+    if(selected==='card') $("#cardFields").show().find('input,select').prop('disabled',false);
+    else $("#cardFields").hide().find('input,select').prop('disabled',true);
+  }
+  $('input[name="paymentMethod"]').change(toggleCardFields);
+  toggleCardFields();
+
+  // Form validation
+  function validateForm(){
+    let valid = true;
+    if($("#fullName").val().trim().length<3){ $("#fullName").addClass("is-invalid"); valid=false; } else { $("#fullName").removeClass("is-invalid"); }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test($("#email").val().trim())){ $("#email").addClass("is-invalid"); valid=false; } else { $("#email").removeClass("is-invalid"); }
+    if(!/^\d{10,}$/.test($("#phone").val().trim())){ $("#phone").addClass("is-invalid"); valid=false; } else { $("#phone").removeClass("is-invalid"); }
+    if($("#address").val().trim()===""){ $("#address").addClass("is-invalid"); valid=false; } else { $("#address").removeClass("is-invalid"); }
+    if($("#city").val().trim()===""){ $("#city").addClass("is-invalid"); valid=false; } else { $("#city").removeClass("is-invalid"); }
+    if(!/^\d{4,6}$/.test($("#postal").val().trim())){ $("#postal").addClass("is-invalid"); valid=false; } else { $("#postal").removeClass("is-invalid"); }
+    if($("#country").val()===""){ $("#country").addClass("is-invalid"); valid=false; } else { $("#country").removeClass("is-invalid"); }
+    if(!$('input[name="paymentMethod"]:checked').val()){ $("#paymentError").show(); valid=false; } else { $("#paymentError").hide(); }
+    if($('input[name="paymentMethod"]:checked').val()==="card"){
+      ["#cardName","#cardNumber","#expiry","#cvv"].forEach(id=>{
+        if($(id).val().trim()===""){ $(id).addClass("is-invalid"); valid=false; } else { $(id).removeClass("is-invalid"); }
+      });
+    }
+    if(!$("#terms").prop("checked")){ $("#termsError").show(); valid=false; } else { $("#termsError").hide(); }
+    return valid;
+  }
+
+  // Place Order
+  $("#placeOrder").click(function(e){
+    e.preventDefault();
+    if(validateForm()){
+      alert("Order placed successfully!");
+      $(".checkout-section").hide();
+      $("#reviewSection").show();
+      $(".step").removeClass("active");
+      $(".step[data-step='review']").addClass("active");
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRUD Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  body { background:#000; color:#fff; font-family:"Poppins",sans-serif; }
+  .card-bg { background:#111; border:none; border-radius:12px; padding:20px; margin-bottom:30px; }
+  .form-control, .form-select { background:#222; color:#fff; border:1px solid #333; }
+  .form-control:focus, .form-select:focus { box-shadow:0 0 0 0.2rem rgba(255,77,77,0.15); border-color:#ff4d4d; }
+  .list-group-item { background:#222; border:none; display:flex; justify-content:space-between; align-items:center; padding:12px 15px; border-radius:8px; margin-bottom:10px; }
+  .btn { background:#ff4d4d; color:#fff; transition:0.3s; }
+  .btn:hover { background:#e63c3c; }
+  .loading { text-align:center; font-size:18px; margin:20px 0; }
+  .text-error { color:#ff4d4d; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<main class="container py-5">
+
+  <h2 class="mb-4">CRUD Dashboard</h2>
+
+  <!-- Add/Update Form -->
+  <div class="card card-bg p-4 mb-4">
+    <h5>Add / Update Item</h5>
+    <form id="crudForm">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" id="itemName" class="form-control" placeholder="Item Name" required>
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="itemPrice" class="form-control" placeholder="Price" required>
+        </div>
+        <div class="col-md-4">
+          <button class="btn w-100" id="addItem">Add Item</button>
+        </div>
+      </div>
+    </form>
+    <div id="formError" class="text-error"></div>
+  </div>
+
+  <!-- Items List -->
+  <div class="card card-bg p-4">
+    <h5>Items List</h5>
+    <div id="loading" class="loading">Loading items...</div>
+    <ul id="itemList" class="list-unstyled"></ul>
+    <div id="listError" class="text-error"></div>
+  </div>
+
+</main>
+
+<script>
+$(document).ready(function(){
+
+  const apiURL = "https://fakestoreapi.com/products";
+  let items = [];
+  let editingId = null;
+
+  function renderList(){
+    $("#itemList").empty();
+    if(items.length===0){ $("#itemList").append("<li>No items available.</li>"); return; }
+    items.forEach(item=>{
+      $("#itemList").append(`
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>${item.title}</strong> - ₨ ${item.price}
+          </div>
+          <div>
+            <button class="btn btn-sm btn-warning edit" data-id="${item.id}">Edit</button>
+            <button class="btn btn-sm btn-danger remove" data-id="${item.id}">Delete</button>
+          </div>
+        </li>
+      `);
+    });
+  }
+
+  // Load items from API
+  function loadItems(){
+    $("#loading").show();
+    $("#listError").text("");
+    $.ajax({
+      url: apiURL,
+      method: "GET",
+      success: function(data){
+        items = data.map(i=>({id:i.id, title:i.title, price:i.price}));
+        $("#loading").hide();
+        renderList();
+      },
+      error: function(){
+        $("#loading").hide();
+        $("#listError").text("Failed to load items. Try again.");
+      }
+    });
+  }
+
+  loadItems();
+
+  // Add/Update item
+  $("#addItem").click(function(e){
+    e.preventDefault();
+    const title = $("#itemName").val().trim();
+    const price = parseFloat($("#itemPrice").val());
+    if(!title || price<=0){ $("#formError").text("Enter valid name and price."); return; }
+    $("#formError").text("");
+
+    const payload = { title, price, description:"Demo item", image:"https://i.pravatar.cc", category:"general" };
+
+    if(editingId){
+      // Update item
+      $.ajax({
+        url: `${apiURL}/${editingId}`,
+        method:"PUT",
+        data: JSON.stringify(payload),
+        contentType:"application/json",
+        success: function(data){
+          loadItems();
+          editingId = null;
+          $("#crudForm")[0].reset();
+        },
+        error: function(){ $("#formError").text("Update failed."); }
+      });
+    } else {
+      // Create new item
+      $.ajax({
+        url: apiURL,
+        method:"POST",
+        data: JSON.stringify(payload),
+        contentType:"application/json",
+        success: function(data){
+          loadItems();
+          $("#crudForm")[0].reset();
+        },
+        error: function(){ $("#formError").text("Add failed."); }
+      });
+    }
+  });
+
+  // Delete item
+  $(document).on("click",".remove", function(){
+    const id = $(this).data("id");
+    $.ajax({
+      url: `${apiURL}/${id}`,
+      method:"DELETE",
+      success: function(){ loadItems(); },
+      error: function(){ $("#listError").text("Delete failed."); }
+    });
+  });
+
+  // Edit item
+  $(document).on("click",".edit", function(){
+    const id = $(this).data("id");
+    const item = items.find(i=>i.id===id);
+    if(item){
+      $("#itemName").val(item.title);
+      $("#itemPrice").val(item.price);
+      editingId = id;
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

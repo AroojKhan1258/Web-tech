@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Extreme Adventures - Arooj Aslam</title>
@@ -120,6 +121,130 @@
   </div>
   <p>© 2025 Extreme Adventures. Developed by Arooj Aslam.</p>
 </footer>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extreme Adventures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Extreme Adventures</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Adventures</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#gallery">Adventure Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Live the Extreme</h1>
+      <p>Dare to experience the thrill — your next adventure starts here!</p>
+      <a href="#contact" class="btn">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <main>
+    <section class="services" id="services">
+      <h2>Our Top Adventures</h2>
+      <div class="service-boxes">
+        <div class="service">
+          <img src="images/skydiving.png" alt="Person skydiving" />
+          <h3>Skydiving</h3>
+          <p>Feel the wind rush as you freefall from 10,000 feet!</p>
+        </div>
+        <div class="service">
+          <img src="images/surfing.png" alt="Surfing on waves" />
+          <h3>Surfing</h3>
+          <p>Ride the waves and conquer the ocean.</p>
+        </div>
+        <div class="service">
+          <img src="images/mountain.png" alt="Mountain climbing adventure" />
+          <h3>Mountain Climbing</h3>
+          <p>Reach new heights with our expert guides.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <h2>What Adventurers Say</h2>
+      <div class="testimonial-boxes">
+        <div class="testimonial">
+          <img src="images/person1.jpg" alt="Sarah smiling" />
+          <p>“Skydiving was life‑changing. Absolutely incredible!”</p>
+          <h3>- Sarah</h3>
+        </div>
+        <div class="testimonial">
+          <img src="images/person2.jpg" alt="Ahmed outdoors" />
+          <p>“A very professional team and unforgettable thrill!”</p>
+          <h3>- Ahmed</h3>
+        </div>
+        <div class="testimonial">
+          <img src="images/person3.jpg" alt="Emma smiling" />
+          <p>“I can’t wait to come back for another adventure!”</p>
+          <h3>- Emma</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+      <h2>Adventure Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/gallery1.jpg" alt="Adventure 1"></div>
+        <div class="gallery-item"><img src="images/gallery2.jpg" alt="Adventure 2"></div>
+        <div class="gallery-item"><img src="images/gallery3.jpg" alt="Adventure 3"></div>
+        <div class="gallery-item"><img src="images/gallery4.jpg" alt="Adventure 4"></div>
+        <div class="gallery-item"><img src="images/gallery5.jpg" alt="Adventure 5"></div>
+        <div class="gallery-item"><img src="images/gallery6.jpg" alt="Adventure 6"></div>
+      </div>
+    </section>
+
+    <!-- Secondary CTA -->
+    <section class="cta">
+      <h2>Ready for your next thrill?</h2>
+      <a href="#contact" class="btn">Book Your Adventure</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" aria-label="Your Name" required>
+        <input type="email" placeholder="Your Email" aria-label="Your Email" required>
+        <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Extreme Adventures | Designed by Arooj</p>
+  </footer>
+>>>>>>> 1e15ed7 (Added Task1, Task2, Task3, Task4 folders with respective code)
+
+  <script>
+    // Smooth scroll for buttons/links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
