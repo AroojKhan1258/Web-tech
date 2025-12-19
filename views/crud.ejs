@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Extreme Adventures</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    background:#000;
+    color:#fff;
+    font-family:"Poppins",sans-serif;
+    margin:0;
+  }
+  a { color:#ff4d4d; text-decoration:none; }
+  a:hover { color:#e63c3c; }
+  .card-bg { 
+    background:#111; 
+    border:none; 
+    border-radius:12px; 
+    padding:20px; 
+    margin-bottom:30px; 
+    box-shadow:0 0 20px rgba(255,77,77,0.3); 
+  }
+  .form-control, .form-select { 
+    background:#222; 
+    color:#fff; 
+    border:1px solid #333; 
+    border-radius:8px; 
+  }
+  .form-control:focus, .form-select:focus { 
+    box-shadow:0 0 0 0.2rem rgba(255,77,77,0.25); 
+    border-color:#ff4d4d; 
+  }
+  .list-group-item { 
+    background:#222; 
+    border:none; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    padding:12px 15px; 
+    border-radius:8px; 
+    margin-bottom:10px; 
+    transition:0.3s; 
+  }
+  .list-group-item:hover { background:#333; }
+  .btn { 
+    background:#ff4d4d; 
+    color:#fff; 
+    border-radius:8px; 
+    transition:0.3s; 
+  }
+  .btn:hover { background:#e63c3c; }
+  h2 { margin-bottom:30px; }
+  #itemList li div button { margin-left:5px; }
+  #formError, #listError { font-size:14px; }
+  .pagination { justify-content:center; }
+</style>
+</head>
+<body>
+
+<%- include("partials/header") %>
+
+<main class="container py-5">
+  <h2>CRUD Dashboard</h2>
+
+  <!-- Search & Sort -->
+  <div class="card card-bg p-4 mb-4">
+    <div class="row g-3 align-items-center">
+      <div class="col-md-4">
+        <input type="text" id="searchItem" class="form-control" placeholder="Search by name...">
+      </div>
+      <div class="col-md-4">
+        <select id="sortItem" class="form-select">
+          <option value="">Sort By</option>
+          <option value="name-asc">Name A-Z</option>
+          <option value="name-desc">Name Z-A</option>
+          <option value="price-asc">Price Low → High</option>
+          <option value="price-desc">Price High → Low</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Update Form -->
+  <div class="card card-bg p-4 mb-4">
+    <h5 class="mb-3">Add / Update Item</h5>
+    <form id="crudForm" class="row g-3">
+      <div class="col-md-5">
+        <input type="text" id="itemName" class="form-control" placeholder="Item Name" required>
+      </div>
+      <div class="col-md-4">
+        <input type="number" id="itemPrice" class="form-control" placeholder="Price" required>
+      </div>
+      <div class="col-md-3 d-grid">
+        <button class="btn" id="addItem">Add Item</button>
+      </div>
+    </form>
+    <div id="formError" class="text-danger mt-2"></div>
+  </div>
+
+  <!-- Items List -->
+  <div class="card card-bg p-4">
+    <h5 class="mb-3">Items List</h5>
+    <div id="loading" class="mb-3">Loading items...</div>
+    <ul id="itemList" class="list-unstyled"></ul>
+    <nav>
+      <ul class="pagination mt-3"></ul>
+    </nav>
+    <div id="listError" class="text-danger mt-2"></div>
+  </div>
+</main>
+
+<%- include("partials/footer") %>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+  const apiURL = "https://fakestoreapi.com/products";
+  let items = [];
+  let filteredItems = [];
+  let editingId = null;
+  const itemsPerPage = 5;
+  let currentPage = 1;
+
+  function renderList(page=1){
+    $("#itemList").empty();
+    filteredItems = [...items];
+
+    // Apply search
+    const searchTerm = $("#searchItem").val().toLowerCase();
+    if(searchTerm){
+      filteredItems = filteredItems.filter(i=>i.title.toLowerCase().includes(searchTerm));
+    }
+
+    // Apply sorting
+    const sortValue = $("#sortItem").val();
+    if(sortValue === "name-asc") filteredItems.sort((a,b)=>a.title.localeCompare(b.title));
+    else if(sortValue === "name-desc") filteredItems.sort((a,b)=>b.title.localeCompare(a.title));
+    else if(sortValue === "price-asc") filteredItems.sort((a,b)=>a.price-b.price);
+    else if(sortValue === "price-desc") filteredItems.sort((a,b)=>b.price-a.price);
+
+    // Pagination
+    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+    if(page>totalPages) page=1;
+    currentPage = page;
+    const start = (page-1)*itemsPerPage;
+    const paginatedItems = filteredItems.slice(start, start+itemsPerPage);
+
+    if(paginatedItems.length===0){ 
+      $("#itemList").append("<li class='text-muted'>No items available.</li>"); 
+      $(".pagination").empty();
+      return; 
+    }
+
+    paginatedItems.forEach(item=>{
+      $("#itemList").append(`
+        <li class="list-group-item">
+          <div>
+            <strong>${item.title}</strong> - ₨ ${item.price.toLocaleString()}
+          </div>
+          <div>
+            <button class="btn btn-sm btn-warning edit" data-id="${item.id}">Edit</button>
+            <button class="btn btn-sm btn-danger remove" data-id="${item.id}">Delete</button>
+          </div>
+        </li>
+      `);
+    });
+
+    renderPagination(totalPages);
+  }
+
+  function renderPagination(totalPages){
+    $(".pagination").empty();
+    for(let i=1;i<=totalPages;i++){
+      $(".pagination").append(`<li class="page-item ${i===currentPage?'active':''}"><a class="page-link" href="#">${i}</a></li>`);
+    }
+  }
+
+  $(document).on("click",".page-link", function(e){
+    e.preventDefault();
+    const page = parseInt($(this).text());
+    renderList(page);
+  });
+
+  function loadItems(){
+    $("#loading").show();
+    $("#listError").text("");
+    $.ajax({
+      url: apiURL,
+      method: "GET",
+      success: function(data){
+        items = data.map(i=>({id:i.id, title:i.title, price:i.price}));
+        $("#loading").hide();
+        renderList();
+      },
+      error: function(){ 
+        $("#loading").hide(); 
+        $("#listError").text("Failed to load items."); 
+      }
+    });
+  }
+
+  loadItems();
+
+  // Add or Update
+  $("#addItem").click(function(e){
+    e.preventDefault();
+    const title = $("#itemName").val().trim();
+    const price = parseFloat($("#itemPrice").val());
+    if(!title || price<=0){ 
+      $("#formError").text("Enter a valid name and price."); 
+      return; 
+    }
+    $("#formError").text("");
+
+    const payload = { title, price, description:"Demo item", image:"https://i.pravatar.cc", category:"general" };
+
+    if(editingId){
+      $.ajax({
+        url: `${apiURL}/${editingId}`,
+        method:"PUT",
+        data: JSON.stringify(payload),
+        contentType:"application/json",
+        success: function(){ 
+          loadItems(); 
+          editingId = null; 
+          $("#crudForm")[0].reset(); 
+        },
+        error: function(){ $("#formError").text("Update failed."); }
+      });
+    } else {
+      $.ajax({
+        url: apiURL,
+        method:"POST",
+        data: JSON.stringify(payload),
+        contentType:"application/json",
+        success: function(){ 
+          loadItems(); 
+          $("#crudForm")[0].reset(); 
+        },
+        error: function(){ $("#formError").text("Add failed."); }
+      });
+    }
+  });
+
+  // Delete
+  $(document).on("click",".remove", function(){
+    const id = $(this).data("id");
+    $.ajax({
+      url: `${apiURL}/${id}`,
+      method:"DELETE",
+      success: function(){ loadItems(); },
+      error: function(){ $("#listError").text("Delete failed."); }
+    });
+  });
+
+  // Edit
+  $(document).on("click",".edit", function(){
+    const id = $(this).data("id");
+    const item = items.find(i=>i.id===id);
+    if(item){ 
+      $("#itemName").val(item.title); 
+      $("#itemPrice").val(item.price); 
+      editingId = id; 
+    }
+  });
+
+  // Search & Sort triggers
+  $("#searchItem").on("input", function(){ renderList(1); });
+  $("#sortItem").on("change", function(){ renderList(1); });
+
+});
+</script>
+</body>
+</html>

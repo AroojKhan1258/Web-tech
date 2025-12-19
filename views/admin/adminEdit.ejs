@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+
+<div class="container py-5">
+  <h2>Edit Product</h2>
+
+  <form method="POST" action="/admin/edit/<%= product._id %>">
+    <input name="name" value="<%= product.name %>" class="form-control mb-2">
+    <input name="price" value="<%= product.price %>" class="form-control mb-2">
+    <input name="category" value="<%= product.category %>" class="form-control mb-2">
+    <input name="image" value="<%= product.image %>" class="form-control mb-2">
+    <textarea name="description" class="form-control mb-2"><%= product.description %></textarea>
+
+    <button class="btn">Update Product</button>
+  </form>
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,52 @@
+<%- include("partials/header") %>
+
+<main class="container py-5">
+  <h2>Our Products</h2>
+
+  <!-- Filters -->
+  <form method="get" class="mb-4 d-flex gap-2 flex-wrap">
+    <select name="category" class="form-select" style="width:200px;">
+      <option value="" <%= category === "" ? "selected" : "" %>>All Categories</option>
+      <option value="Adventure" <%= category === "Adventure" ? "selected" : "" %>>Adventure</option>
+      <option value="Water Sports" <%= category === "Water Sports" ? "selected" : "" %>>Water Sports</option>
+    </select>
+    <input type="number" name="minPrice" placeholder="Min Price" class="form-control" style="width:150px;" value="<%= minPrice %>">
+    <input type="number" name="maxPrice" placeholder="Max Price" class="form-control" style="width:150px;" value="<%= maxPrice %>">
+    <button class="btn btn-primary">Filter</button>
+  </form>
+
+  <!-- Product Cards -->
+  <div class="row g-4">
+    <% if(products.length === 0){ %>
+      <p>No products found.</p>
+    <% } else { %>
+      <% products.forEach(product => { %>
+        <div class="col-md-4">
+          <div class="card card-bg p-3">
+            <img src="<%= product.image %>" class="card-img-top" style="height:200px; object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= product.description %></p>
+              <p class="fw-bold">₨ <%= product.price %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <!-- Pagination -->
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      <% for(let i = 1; i <= Math.ceil(total / limit); i++) { %>
+        <li class="page-item <%= i === page ? 'active' : '' %>">
+          <a class="page-link" href="?page=<%= i %>&limit=<%= limit %>&category=<%= category %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>">
+            <%= i %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</main>
+
+<%- include("partials/footer") %>

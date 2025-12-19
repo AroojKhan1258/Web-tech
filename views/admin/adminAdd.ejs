@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+
+<div class="container py-5">
+  <h2>Add Product</h2>
+
+  <form method="POST" action="/admin/add">
+    <input name="name" placeholder="Product Name" class="form-control mb-2" required>
+    <input name="price" type="number" placeholder="Price" class="form-control mb-2" required>
+    <input name="category" placeholder="Category" class="form-control mb-2">
+    <input name="image" placeholder="Image URL" class="form-control mb-2">
+    <textarea name="description" placeholder="Description" class="form-control mb-2"></textarea>
+
+    <button class="btn">Add Product</button>
+  </form>
+</div>
+
+<%- include("../partials/footer") %>

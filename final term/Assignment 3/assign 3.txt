@@ -1,0 +1,146 @@
+
+//app.js
+
+// Connect to MongoDB
+const db = require("./db"); 
+
+const express = require("express");
+const path = require("path");
+const Product = require("./models/Product"); // Product model
+const app = express();
+const PORT = 3000;
+
+// Set up view engine and static files
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// -------------------- ROUTES -------------------- //
+
+// Home page
+app.get("/", (req, res) => res.render("index"));
+
+// Checkout page
+app.get("/checkout", (req, res) => res.render("checkout"));
+
+// CRUD page
+app.get("/crud", (req, res) => res.render("crud"));
+
+// Products page with pagination & filtering
+app.get("/products", async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const category = req.query.category || "";
+    const minPrice = parseInt(req.query.minPrice) || 0;
+    const maxPrice = parseInt(req.query.maxPrice) || 1000000;
+
+    // Build filter
+    let filter = { price: { $gte: minPrice, $lte: maxPrice } };
+    if (category) filter.category = category;
+
+    // Count & fetch
+    const total = await Product.countDocuments(filter);
+    const products = await Product.find(filter)
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    // Pass all variables to EJS
+    res.render("products", {
+      products,
+      page,
+      limit,
+      total,
+      category,
+      minPrice,
+      maxPrice
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server Error");
+  }
+});
+
+// 404 page
+app.use((req, res) => res.status(404).send("<h1>404 | Page Not Found</h1>"));
+
+// Start server
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+  
+
+
+
+
+
+
+
+
+//product.ejs 
+
+
+<%- include("partials/header") %>
+
+<main class="container py-5">
+  <h2>Our Products</h2>
+
+  <!-- Filters -->
+  <form method="get" class="mb-4 d-flex gap-2 flex-wrap">
+    <select name="category" class="form-select" style="width:200px;">
+      <option value="" <%= category === "" ? "selected" : "" %>>All Categories</option>
+      <option value="Adventure" <%= category === "Adventure" ? "selected" : "" %>>Adventure</option>
+      <option value="Water Sports" <%= category === "Water Sports" ? "selected" : "" %>>Water Sports</option>
+    </select>
+    <input type="number" name="minPrice" placeholder="Min Price" class="form-control" style="width:150px;" value="<%= minPrice %>">
+    <input type="number" name="maxPrice" placeholder="Max Price" class="form-control" style="width:150px;" value="<%= maxPrice %>">
+    <button class="btn btn-primary">Filter</button>
+  </form>
+
+  <!-- Product Cards -->
+  <div class="row g-4">
+    <% if(products.length === 0){ %>
+      <p>No products found.</p>
+    <% } else { %>
+      <% products.forEach(product => { %>
+        <div class="col-md-4">
+          <div class="card card-bg p-3">
+            <img src="<%= product.image %>" class="card-img-top" style="height:200px; object-fit:cover;">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= product.description %></p>
+              <p class="fw-bold">₨ <%= product.price %></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <!-- Pagination -->
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      <% for(let i = 1; i <= Math.ceil(total / limit); i++) { %>
+        <li class="page-item <%= i === page ? 'active' : '' %>">
+          <a class="page-link" href="?page=<%= i %>&limit=<%= limit %>&category=<%= category %>&minPrice=<%= minPrice %>&maxPrice=<%= maxPrice %>">
+            <%= i %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</main>
+
+<%- include("partials/footer") %>
+
+
+
+
+
+
+
+
+
+
+
+
